@@ -60,7 +60,7 @@ class HuntingBookingTest extends TestCase
                 'participants_count' => 4,
             ]);
     
-            $response->assertStatus(200)
+            $response->assertStatus(201)
                      ->assertJsonStructure([
                          'id',
                          'tour_name',
@@ -83,7 +83,7 @@ class HuntingBookingTest extends TestCase
                 'participants_count' => 15,
             ]);
     
-            $response->assertStatus(400)
+            $response->assertStatus(422)
                      ->assertJson([
                          'message' => 'Максимум 10 участников на тур.'
                      ]);

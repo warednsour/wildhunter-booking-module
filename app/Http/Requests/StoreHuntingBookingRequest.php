@@ -29,4 +29,12 @@ class StoreHuntingBookingRequest extends FormRequest
             'participants_count' => 'required|integer|min:1|max:10',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'participants_count.max' => 'Максимум 10 участников на тур.',
+        ];
+    }
+
 }
