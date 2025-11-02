@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hunting_bookings', function (Blueprint $table) {
+        Schema::create('create_hunting_bookings', function (Blueprint $table) {
             $table->id();
+            $table->string('tour_name');
+            $table->string('hunter_name');
+            $table->foreignId('guide_id')->constrained('guides')->cascadeOnDelete();
+            $table->date('date');
+            $table->unsignedTinyInteger('participants_count');
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hunting_bookings');
+        Schema::dropIfExists('create_hunting_bookings');
     }
 };

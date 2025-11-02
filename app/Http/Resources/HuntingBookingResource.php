@@ -14,6 +14,13 @@ class HuntingBookingResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'tour_name' => $this->tour_name,
+            'hunter_name' => $this->hunter_name,
+            'date' => $this->date,
+            'participants_count' => $this->participants_count,
+            'guide' => new GuideResource($this->whenLoaded('guide')),
+        ];
     }
 }

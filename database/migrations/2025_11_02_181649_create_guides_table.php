@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('guides', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->unsignedTinyInteger('experience_years')->default(0);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
